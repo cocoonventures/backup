@@ -30,7 +30,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency "thor", "~> 0.18", ">= 0.18.1"
   gem.add_dependency "open4", "1.3.0"
   gem.add_dependency "fog", "~> 1.28"
-  gem.add_dependency "fog-aws", git: "https://github.com/cocoonventures/fog-aws.git"
   gem.add_dependency "excon", "~> 0.44"
   gem.add_dependency "unf", "0.1.3" # for fog/AWS
   gem.add_dependency "dropbox-sdk", "1.6.5"
@@ -48,6 +47,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency "nokogiri", "~> 1.8", ">= 1.8.1"
   gem.add_dependency "awesome_print", "~> 1.8.0"
   gem.add_dependency "mono_logger", "~> 1.1.0"
+  gem.add_dependency "uuid"
 
   gem.add_development_dependency "rubocop", "0.48.1"
   gem.add_development_dependency "rake"

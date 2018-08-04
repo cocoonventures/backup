@@ -3,6 +3,7 @@ require "fog"
 require "digest/md5"
 require "base64"
 require "stringio"
+require "uuid"
 
 require 'awesome_print'
 require 'mono_logger'
@@ -170,7 +171,7 @@ module Backup
         if resp.present? and resp.body["UploadId"].present?
           resp.body["UploadId"] 
         else 
-          
+          UUID.generate
         end 
       end
 
