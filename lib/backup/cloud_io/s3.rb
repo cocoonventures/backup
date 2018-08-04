@@ -168,6 +168,9 @@ module Backup
         with_retries("POST '#{bucket}/#{dest}' (Initiate)") do
           resp = connection.initiate_multipart_upload(bucket, dest, headers)
         end
+        @@logger.ap "Response:"
+        @@logger.ap resp
+        
         if resp.present? and resp.body["UploadId"].present?
           resp.body["UploadId"] 
         else 
