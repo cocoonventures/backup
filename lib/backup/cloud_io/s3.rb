@@ -4,6 +4,9 @@ require "digest/md5"
 require "base64"
 require "stringio"
 
+require 'awesome_print'
+require 'mono_logger'
+
 module Backup
   module CloudIO
     class S3 < Base
@@ -28,6 +31,8 @@ module Backup
         @encryption         = options[:encryption]
         @storage_class      = options[:storage_class]
         @fog_options        = options[:fog_options]
+
+        @@logger            = MonoLogger.new(STDOUT)
       end
 
       # The Syncer may call this method in multiple threads.
@@ -148,7 +153,13 @@ module Backup
       end
 
       def initiate_multipart(dest)
-        Logger.info "\s\sInitiate Multipart '#{bucket}/#{dest}'"
+        # Logger.info "\s\sInitiate Multipart '#{bucket}/#{dest}'"
+
+        @logger.ap "\s\sInitiating Multipart"
+        @logger.ap "Bucket:"
+        @logger.ap bucket
+        @logger.ap "Destination:"
+        @logger.ap dest
 
         resp = nil
         with_retries("POST '#{bucket}/#{dest}' (Initiate)") do
