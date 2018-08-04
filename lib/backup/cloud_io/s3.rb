@@ -167,7 +167,11 @@ module Backup
         with_retries("POST '#{bucket}/#{dest}' (Initiate)") do
           resp = connection.initiate_multipart_upload(bucket, dest, headers)
         end
-        resp.body["UploadId"]
+        if resp.present? and resp.body["UploadId"].present?
+          resp.body["UploadId"] 
+        else 
+          
+        end 
       end
 
       # Each part's MD5 is sent to verify the transfer.
