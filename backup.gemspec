@@ -45,8 +45,8 @@ Gem::Specification.new do |gem|
   gem.add_dependency "aws-sdk", "~> 2"
   gem.add_dependency "qiniu", "~> 6.5"
   gem.add_dependency "nokogiri", "~> 1.8", ">= 1.8.1"
-  gem.add_dependency "awesome_print" "~> 1.8.0"
-  gem.add_dependency "mono_logger" "~> 1.1.0"
+  gem.add_dependency "awesome_print", "~> 1.8.0"
+  gem.add_dependency "mono_logger", "~> 1.1.0"
 
   gem.add_development_dependency "rubocop", "0.48.1"
   gem.add_development_dependency "rake"
