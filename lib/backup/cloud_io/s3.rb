@@ -155,11 +155,11 @@ module Backup
       def initiate_multipart(dest)
         # Logger.info "\s\sInitiate Multipart '#{bucket}/#{dest}'"
 
-        @logger.ap "\s\sInitiating Multipart"
-        @logger.ap "Bucket:"
-        @logger.ap bucket
-        @logger.ap "Destination:"
-        @logger.ap dest
+        @@logger.ap "\s\sInitiating Multipart"
+        @@logger.ap "Bucket:"
+        @@logger.ap bucket
+        @@logger.ap "Destination:"
+        @@logger.ap dest
 
         resp = nil
         with_retries("POST '#{bucket}/#{dest}' (Initiate)") do
