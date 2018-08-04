@@ -160,6 +160,8 @@ module Backup
         @@logger.ap bucket
         @@logger.ap "Destination:"
         @@logger.ap dest
+        @@logger.ap "Headers:"
+        @@logger.ap headers
 
         resp = nil
         with_retries("POST '#{bucket}/#{dest}' (Initiate)") do
