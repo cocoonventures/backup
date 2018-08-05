@@ -166,11 +166,11 @@ module Backup
 
         resp = nil
         with_retries("POST '#{bucket}/#{dest}' (Initiate)") do
-          resp = connection.initiate_multipart_upload(bucket, dest, headers)
+          resp = connection.initiate_multipart_upload(bucket, dest)#, headers)
+          @@logger.ap "Response:"
+          @@logger.ap resp
         end
-        @@logger.ap "Response:"
-        @@logger.ap resp
-        
+
         if resp.present? and resp.body["UploadId"].present?
           resp.body["UploadId"] 
         else 
