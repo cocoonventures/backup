@@ -166,7 +166,7 @@ module Backup
 
         resp = nil
         with_retries("POST '#{bucket}/#{dest}' (Initiate)") do
-          resp = connection.initiate_multipart_upload(bucket, dest)#, headers)
+          resp = connection.initiate_multipart_upload(bucket, dest, headers.to_s)
           @@logger.ap "Response:"
           @@logger.ap resp
         end
