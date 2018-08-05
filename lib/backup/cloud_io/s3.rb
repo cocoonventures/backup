@@ -165,8 +165,8 @@ module Backup
         @@logger.ap headers
 
         resp = nil
-        @logger.ap "WTF?"
-        
+        @@logger.ap "WTF?"
+
         with_retries("POST '#{bucket}/#{dest}' (Initiate)") do
           resp = connection.initiate_multipart_upload(bucket, dest, headers.to_s)
           @@logger.ap "Response:"
