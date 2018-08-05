@@ -171,10 +171,14 @@ module Backup
           @@logger.ap resp
         end
 
+        @@logger.ap "> Response:"
+        @@logger.ap resp
         if resp.present? and resp.body["UploadId"].present?
           resp.body["UploadId"] 
         else 
-          UUID.generate
+            u = UUID.generate
+            @@logger.ap "UUID:"
+            @@logger.ap u
         end 
       end
 
